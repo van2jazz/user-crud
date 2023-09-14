@@ -16,28 +16,26 @@ public class UserService {
         this.userDao = userDao;
     }
 
-    public List<User> getAllUsers(){
+    public List<User> getAllUsers() {
         return userDao.findAll();
     }
 
-    public void saveUser(User user){
-         userDao.save(user);
+    public void saveUser(User user) {
+        userDao.save(user);
     }
 
-    public User getUserById(Long id){
+    public User getUserById(Long id) {
         return userDao.findById(id).get();
     }
 
-    public void updateUser(User user){
-         userDao.save(user);
+    public void updateUser(User user) {
+        userDao.save(user);
     }
 
 
-    public void deleteById(Long id){
-         userDao.deleteById(id);
+    public void deleteById(Long id) {
+        userDao.deleteById(id);
     }
-
-
 
 
 }
