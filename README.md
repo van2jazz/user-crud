@@ -1,4 +1,6 @@
 # user-crud
+This documentation provides details about the User Management API, including its endpoints, 
+request/response formats, sample usage, limitations, and setup instructions.
 
 # Prerequisites
 Before you begin, ensure you have met the following requirements:
@@ -31,3 +33,98 @@ The following API endpoints are available:
 •	PUT /api/update: Update an existing user.
 
 •	DELETE /api/{id}: Delete a user by ID.
+
+
+
+
+
+# The User API offers the following endpoints:
+1.	Get All Users
+
+Endpoint: GET /api/all
+
+Description: Retrieve a list of all users.
+
+Request Format: N/A (No request body)
+
+Response Format:
+	HTTP Status Code: 200 OK
+	Body:
+	
+ 	 {
+    	   "userId": 1,
+    	   "name": "Jelly Millar"
+ 	 },
+   
+ 	 {
+    	   "userId": 2,
+	   "name": "John MAyer"
+  	 }
+
+3.	Create a New User
+•	Endpoint: POST /api/save
+
+•	Description: Create a new user.
+
+•	Request Format:
+o	Content-Type: application/json
+
+o	Body:
+
+	{
+ 	 "name": "Mark Essien"
+	}
+
+•	Response Format:
+     	 HTTP Status Code: 201 Created
+
+
+3.	Get User by ID
+•	Endpoint: GET /api/{id}
+•	Description: Retrieve a user by their ID.
+•	Response Format:
+o	HTTP Status Code: 200 OK
+Body:
+{
+  "userId": 2,
+  "name": "Jane Smith"
+}
+
+4.	Update an Existing User
+
+•	Endpoint: PUT /api/update
+
+•	Description: Update an existing user.
+
+•	Request Format:
+
+o	Content-Type: application/json
+	Body:
+
+	{
+ 	    "userId": 3,
+ 	     "name": "Updated Name"
+	}
+
+Response Format:
+         HTTP Status Code: 200 OK
+
+5.	Delete User by ID
+
+Endpoint: DELETE /api/{id}
+
+Description: Delete a user by their ID.
+
+Response Format:
+
+HTTP Status Code: 200 OK
+
+# Limitations and Assumptions
+
+•	The API assumes a single-user entity with attributes userId and name.
+
+•	There is no authentication or authorization mechanism implemented yet.
+
+•	Error handling for validation and exceptional cases is minimal.
+
+
