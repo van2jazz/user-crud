@@ -93,26 +93,38 @@ Body:
 4.	Update an Existing User
 
 •	Endpoint: PUT /api/update
+
 •	Description: Update an existing user.
+
 •	Request Format:
+
 o	Content-Type: application/json
-Body:
-{
-  "userId": 3,
-  "name": "Updated Name"
-}
+	Body:
+
+	{
+ 	    "userId": 3,
+ 	     "name": "Updated Name"
+	}
 
 Response Format:
          HTTP Status Code: 200 OK
+
 5.	Delete User by ID
+
 Endpoint: DELETE /api/{id}
+
 Description: Delete a user by their ID.
+
 Response Format:
+
 HTTP Status Code: 200 OK
 
-Limitations and Assumptions
+# Limitations and Assumptions
+
 •	The API assumes a single-user entity with attributes userId and name.
+
 •	There is no authentication or authorization mechanism implemented yet.
+
 •	Error handling for validation and exceptional cases is minimal.
 
 
