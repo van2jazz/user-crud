@@ -1,5 +1,0 @@
-com\example\crud\repository\UserDao.class
-com\example\crud\controller\UserController.class
-com\example\crud\service\UserService.class
-com\example\crud\CrudApplication.class
-com\example\crud\entity\User.class
