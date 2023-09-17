@@ -15,7 +15,7 @@ public class User {
     private long userId;
 
     @NotBlank
-    @Pattern(regexp = "^[a-zA-Z]+$", message = "Name should only contain alphabet")
+    @Pattern(regexp = "^[a-zA-Z]+\\s[a-zA-Z]+$", message = "Name should only contain alphabet")
     @Size(min = 3, message = "Name should have at least three characters")
     @Column
     private String name;
