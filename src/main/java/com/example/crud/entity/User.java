@@ -1,10 +1,7 @@
 package com.example.crud.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 @Entity
 @Table(name = "main_user")
@@ -14,8 +11,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long userId;
 
-    @NotBlank
-    @Pattern(regexp = "^[a-zA-Z]+\\s[a-zA-Z]+$", message = "Name should only contain alphabet")
+    @NotBlank(message = "Enter your name")
+    @NotNull
+    @Pattern(regexp = "^[a-zA-Z]+\\s[a-zA-Z]+$", message = "Name should only contain alphabet, your firstname and lastname")
+//    @Pattern(regexp = "^[A-Za-z\\s]+$", message = "Name should only contain alphabet")
     @Size(min = 3, message = "Name should have at least three characters")
     @Column
     private String name;

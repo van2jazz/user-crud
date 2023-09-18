@@ -1,130 +1,113 @@
-# user-crud
-This documentation provides details about the User Management API, including its endpoints, 
-request/response formats, sample usage, limitations, and setup instructions.
+# HNG Stage 2 Task by Meysdays
+This is the source code showing the tools use to build a CRUD application.
 
-# Prerequisites
-Before you begin, ensure you have met the following requirements:
-•	Java Development Kit (JDK) 8 or later
-•	Apache Maven
-•	A compatible database (e.g., MySQL, PostgreSQL)
-•	Spring Boot
+## Table of Contents
 
-
-# Installation
-To set up the User Management API, follow these steps:
-1.	Clone the repository:
-	https://github.com/van2jazz/user-crud.git
-    cd  user-management-api
-2.	Build the project using Maven
-mvn clean install
-
-# Configuration
-Configuration for the API can be found in the src/main/resources/application.properties file. 
-
-# API Endpoints
-The following API endpoints are available:
-
-•	GET /api/all: Get a list of all users.
-
-•	POST /api/save: Create a new user.
-
-•	GET /api/{id}: Get a user by ID.
-
-•	PUT /api/update: Update an existing user.
-
-•	DELETE /api/{id}: Delete a user by ID.
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+    - [Installation](#installation)
+    - [Configuration](#configuration)
+- [Deployment](#deployment)
+- [Usage & Testing](#usage--testing)
+    - [Endpoints](#endpoints)
 
 
+## Prerequisites
 
+- Java 17 or higher
+- Spring boot 3
+- PostgreSQL 15
+- Maven
 
+## Getting Started
 
-# The User API offers the following endpoints:
-1.	Get All Users
+Get a copy of this repo by using the git clone command.
 
-Endpoint: GET /api/all
+### Installation
 
-Description: Retrieve a list of all users.
+1. Clone the repository:
 
-Request Format: N/A (No request body)
+   ```bash
+   git clone UML_diagram.jpg
 
-Response Format:
-	HTTP Status Code: 200 OK
-	Body:
-	
- 	 {
-    	   "userId": 1,
-    	   "name": "Jelly Millar"
- 	 },
-   
- 	 {
-    	   "userId": 2,
-	   "name": "John MAyer"
-  	 }
+2. Build the project using Maven:
+   ```bash
+   mvn clean install
 
-3.	Create a New User
-•	Endpoint: POST /api/save
+### Configuration
+1. All required dependencies are added to the pom.xml file for successful building of the application.
+2. The required database connection is also set up in the src/main/resources/application.properties file. You can set up your own database using:
+    ```bash
+    spring.datasource.url=jdbc:postgresql://dpg-ck2ofseru70s73913u70-a.oregon-postgres.render.com/home_kyyn
+    spring.datasource.username=home
+    spring.datasource.password=OydgYyk7ouCJ0pJTaxhGVelkmp1gEuI7
+    spring.datasource.driver-class-name=org.postgresql.Driver
+    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+    spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults=false
+    spring.jpa.show-sql=true
+    spring.jpa.hibernate.ddl-auto=update
 
-•	Description: Create a new user.
+## Deployment
+This application was deployed on Render.
 
-•	Request Format:
-o	Content-Type: application/json
+## Usage & Testing of Endpoints
+Postman was used for testing of this application, which the collection was tested. Check the json file "Stage-two.postman_test_run.json" to see the results.
+The published documentation of the expected requests and response can be found in this link: https://documenter.getpostman.com/view/27935491/2s9YC5xXVj
 
-o	Body:
+<b style="color:yellow">CREATE</b> a new user
 
-	{
- 	 "name": "Mark Essien"
-	}
-
-•	Response Format:
-     	 HTTP Status Code: 201 Created
-
-
-3.	Get User by ID
-•	Endpoint: GET /api/{id}
-•	Description: Retrieve a user by their ID.
-•	Response Format:
-o	HTTP Status Code: 200 OK
-Body:
+# Example request:
+```bash
+curl --request POST 'http://localhost:8080/api' \
+--data '{
+"name": "Mark Essien"
+}'
+# Example response:
 {
-  "userId": 2,
-  "name": "Jane Smith"
+"id": 1,
+"name": "Mark Essien"
 }
+```
 
-4.	Update an Existing User
+<b style="color:green">GET</b> user by id
+```bash
+# Example request:
+curl --request GET 'http://localhost:8080/api/22' \
+--data ''
 
-•	Endpoint: PUT /api/update
+# Example response:
+{
+"id": 1,
+"name": "Mark Essien"
+}
+```
 
-•	Description: Update an existing user.
+<b style="color:blue">UPDATE</b> user by id
+```bash
+# Example request:
+curl --request POST 'http://localhost:8080/api/22' \
+--data '{
+"name": "Bobo Joe"
+}'
 
-•	Request Format:
+# Example response:
+{
+"id": 22,
+"message": "Bobo Huge",
+"timeStamp": "17:14:52.255204700"
+}
+```
 
-o	Content-Type: application/json
-	Body:
+<b style="color:red">DELETE</b> user by id
+```bash
+# Example request:
+curl --request DELETE 'http://localhost:8080/api/22' \
+--data ''
 
-	{
- 	    "userId": 3,
- 	     "name": "Updated Name"
-	}
+# Example response:
+Deleted user successfully
+```
 
-Response Format:
-         HTTP Status Code: 200 OK
-
-5.	Delete User by ID
-
-Endpoint: DELETE /api/{id}
-
-Description: Delete a user by their ID.
-
-Response Format:
-
-HTTP Status Code: 200 OK
-
-# Limitations and Assumptions
-
-•	The API assumes a single-user entity with attributes userId and name.
-
-•	There is no authentication or authorization mechanism implemented yet.
-
-•	Error handling for validation and exceptional cases is minimal.
-
-
+##  API
+Use
+https://user-zqec.onrender.com
