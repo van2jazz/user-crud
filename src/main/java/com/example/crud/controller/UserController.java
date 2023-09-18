@@ -23,6 +23,11 @@ public class UserController {
     UserService userService ;
 
 
+    @GetMapping("/all")
+    public ResponseEntity<List<User>> getAllUsers() {
+        List<User> users = userService.getAllUsers();
+        return ResponseEntity.status(HttpStatus.OK).body(users);
+    }
 
     @PostMapping
     public ResponseEntity<User> createPerson(@Valid @RequestBody User user) {

@@ -6,6 +6,7 @@ import com.example.crud.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -14,6 +15,11 @@ public class UserService {
 
     @Autowired
     UserRepo userRepo;
+
+    public List<User> getAllUsers() {
+
+        return userRepo.findAll();
+    }
 
     public User createUser(User user) {
 
