@@ -1,4 +1,4 @@
-# HNG Stage 2 Task by Meysdays
+
 This is the source code showing the tools use to build a CRUD application.
 
 ## Table of Contents
